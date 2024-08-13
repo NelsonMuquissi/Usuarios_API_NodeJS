@@ -11,6 +11,6 @@ router.post("/usuario", UsuarioController.store);
 
 router.put("/usuario", UsuarioController.update);
 
-router.delete("/usuario", UsuarioController.delete);
+router.delete("/usuario/:id", UsuarioController.delete);
 
 export default router

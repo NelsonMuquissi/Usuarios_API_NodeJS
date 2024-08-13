@@ -5,7 +5,7 @@ class UsuarioController {
     const row = await UsuarioRepository.create(usuario)
 
     const response = {
-      mensagem: "Usuario vadastrado com sucesso",
+      mensagem: "Usuario cadastrado com sucesso",
       UsuarioCriado: {
         id_usuario: req.body.id_usuario,
         nome: req.body.nome,
@@ -13,7 +13,7 @@ class UsuarioController {
         idade: req.body.idade,
       }
     };
-    res.status(201).send(response)
+     res.status(201).json(response)
   }
 
   async show(req, res, next) {
@@ -30,12 +30,12 @@ class UsuarioController {
       })
     };
 
-    res.status(200).json(response);
+    res.status(200).json(row);
   }
 
   async findId(req, res, next) {
     const id = req.body.id_usuario
-    const row = await UsuarioRepository.findId(id)
+    const row = await UsuarioRepository.findById(id)
 
   }
 
@@ -45,8 +45,10 @@ class UsuarioController {
   }
 
   async delete(req, res, next) {
-    const id = req.body.id
+    const id = req.params.id
     const row = await UsuarioRepository.delete(id)
+
+    res.status(200).json(row)
   }
 }
 

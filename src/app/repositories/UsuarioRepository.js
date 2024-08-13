@@ -9,9 +9,9 @@ class UsuarioRepository{
         return consulta(sql, 'Não foi possível encontrar')
     }
 
-    findById(){
+    findById(id){
         const sql = "SELECT FROM usuario WHERE id_usuario = ?";
-        return consulta(sql, usuario, "Não foi possível encontrar");
+        return consulta(sql, id, "Não foi possível encontrar");
     }
 
     update(usuario){
@@ -19,9 +19,9 @@ class UsuarioRepository{
         return consulta(sql, [usuario, usuario.id_usuario], "Não foi possível atualizar");
     }
 
-    delete(){
-        const sql = "DELETE *FROM usuario WHERE id_usuario=?";
-        return consulta(sql, usuario, "Não foi possível eliminar o usuario");
+    delete(id){
+        const sql = "DELETE FROM usuario WHERE id_usuario=?";
+        return consulta(sql, id, "Não foi possível eliminar o usuario");
     }
 }
 
