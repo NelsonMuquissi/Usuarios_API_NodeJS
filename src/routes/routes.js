@@ -1,25 +1,16 @@
 import {Router} from 'express'
+import UsuarioController from '../app/controller/UsuarioController.js';
 
 const router = Router()
 
-router.get('/usuario', (req, res, next) => {
-    console.log({mensagen: "Hello Usuario"})
-})
+router.get('/usuario', UsuarioController.show)
 
-router.get("/usuario/:id", (req, res, next) => {
-  console.log({ mensagen: "Hello Usuario" });
-});
+router.get("/usuario/:id", UsuarioController.findId);
 
-router.post("/usuario", (req, res, next) => {
-  console.log({ mensagen: "Hello Usuario" });
-});
+router.post("/usuario", UsuarioController.store);
 
-router.put("/usuario", (req, res, next) => {
-  console.log({ mensagen: "Hello Usuario" });
-});
+router.put("/usuario", UsuarioController.update);
 
-router.delete("/usuario", (req, res, next) => {
-  console.log({ mensagen: "Hello Usuario" });
-});
+router.delete("/usuario", UsuarioController.delete);
 
 export default router
