@@ -34,14 +34,15 @@ class UsuarioController {
   }
 
   async findId(req, res, next) {
-    const id = req.body.id_usuario
+    const id = req.params.id
     const row = await UsuarioRepository.findById(id)
 
   }
 
   async update(req, res, next) {
+    const id = req.params.id
     const usuario = req.body
-    const row = await UsuarioRepository.update(usuario)
+    const row = await UsuarioRepository.update(usuario,id)
   }
 
   async delete(req, res, next) {

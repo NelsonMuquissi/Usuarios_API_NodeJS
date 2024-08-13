@@ -1,12 +1,15 @@
 import mysql from 'mysql2'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const conexao = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    // port
-    password: '',
-    database: 'usuarioapi'
-})
+  user: process.env.user,
+  host: process.env.host,
+  // port
+  password: process.env.password,
+  database: process.env.database,
+});
 
 conexao.connect((error) => {
     if(error) return console.log({mensagem: 'Falha ao conectar-se com o banco'})

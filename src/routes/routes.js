@@ -9,7 +9,7 @@ router.get("/usuario/:id", UsuarioController.findId);
 
 router.post("/usuario", UsuarioController.store);
 
-router.put("/usuario", UsuarioController.update);
+router.put("/usuario/:id", UsuarioController.update);
 
 router.delete("/usuario/:id", UsuarioController.delete);
 

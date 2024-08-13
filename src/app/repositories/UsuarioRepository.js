@@ -10,13 +10,14 @@ class UsuarioRepository{
     }
 
     findById(id){
-        const sql = "SELECT FROM usuario WHERE id_usuario = ?";
-        return consulta(sql, id, "Não foi possível encontrar");
+        const sql = "SELECT *FROM usuario WHERE id_usuario=?";
+        console.log(id)
+        return consulta(sql,id, "Não foi possível encontrar");
     }
 
-    update(usuario){
+    update(usuario, id){
         const sql = "UPDATE usuario SET ? WHERE id_usuario=?";
-        return consulta(sql, [usuario, usuario.id_usuario], "Não foi possível atualizar");
+        return consulta(sql, [usuario, id], "Não foi possível atualizar");
     }
 
     delete(id){
